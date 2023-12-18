@@ -8,11 +8,12 @@ const SignIn = lazy(() => import('../pages/Signin'))
 const SignUp = lazy(() => import('../pages/SignUp'))
 const Home = lazy(() => import('../pages/index'))
 const Users = lazy(() => import('../pages/Users'))
-const Ticket = lazy(() => import('../pages/Ticket'))
-const Movies = lazy(() => import('../pages/Movies'))
-const Cinemas = lazy(() => import('../pages/Cinemas'))
-const Screenings = lazy(() => import('../pages/Screenings'))
-const Bookings = lazy(() => import('../pages/Bookings'))
+const Categories = lazy(() => import('../pages/Categories'))
+const Tournaments = lazy(() => import('../pages/Tournaments'))
+const Match = lazy(() => import('../pages/Match'))
+const CompetitionTeam = lazy(() => import('../pages/CompetitionTeam'))
+const Charts = lazy(() => import('../pages/Charts'))
+const Posts = lazy(() => import('../pages/Posts'))
 const Reviews = lazy(() => import('../pages/Reviews'))
 
 const AppRouter = () => {
@@ -26,11 +27,11 @@ const AppRouter = () => {
 				path="/"
 				element={
 					<Suspense>
-					 <PrivateRouter >
+					 {/* <PrivateRouter > */}
 						<Layout>
 							<Home />
 						</Layout>
-						</PrivateRouter>
+						{/* </PrivateRouter> */}
 					</Suspense>
 				}
 			/>
@@ -38,71 +39,83 @@ const AppRouter = () => {
 				path="/users"
 				element={
 					<Suspense>
-						 <PrivateRouter >
+						 {/* <PrivateRouter > */}
 						<Layout>
 							<Users />
 						</Layout>
-						</PrivateRouter>
+						{/* </PrivateRouter> */}
 					</Suspense>
 				}
 			/>
 			<Route
-				path="/tickets"
+				path="/categories"
 				element={
 					<Suspense>
-						 <PrivateRouter >
+						 {/* <PrivateRouter > */}
 						<Layout>
-							<Ticket />
+							<Categories />
 						</Layout>
-						</PrivateRouter>
+						{/* </PrivateRouter> */}
+					</Suspense>
+				}
+			/>
+      <Route
+				path="/posts"
+				element={
+					<Suspense>
+						 {/* <PrivateRouter > */}
+						<Layout>
+							<Posts />
+						</Layout>
+						{/* </PrivateRouter> */}
 					</Suspense>
 				}
 			/>
 			<Route
-				path="/movies"
+				path="/tournaments"
 				element={
 					<Suspense>
-						 <PrivateRouter >
+						 {/* <PrivateRouter > */}
 						<Layout>
-							<Movies />
+							<Tournaments />
 						</Layout>
-						</PrivateRouter>
+						{/* </PrivateRouter> */}
 					</Suspense>
 				}
 			/>
 			<Route
-				path="/screenings"
+				path="/competition-team"
 				element={
 					<Suspense>
-						 <PrivateRouter >
+						 {/* <PrivateRouter > */}
 						<Layout>
-							<Screenings />
+							<CompetitionTeam />
 						</Layout>
-						</PrivateRouter>
+						{/* </PrivateRouter> */}
 					</Suspense>
 				}
 			/>
 			<Route
-				path="/bookings"
+				path="/charts"
 				element={
 					<Suspense>
-						 <PrivateRouter >
+						 {/* <PrivateRouter > */}
 						<Layout>
-							<Bookings />
+							<Charts />
 						</Layout>
-						</PrivateRouter>
+						{/* </PrivateRouter> */}
 					</Suspense>
 				}
 			/>
 			<Route
-				path="/cinemas"
+				path="/match"
 				element={
 					<Suspense>
-						 <PrivateRouter >
+						 {/* <PrivateRouter > */}
 						<Layout>
-							<Cinemas />
+							<Match />
 						</Layout>
-						</PrivateRouter>
+						{/* </PrivateRouter> */}
 					</Suspense>
 				}
 			/>
@@ -110,11 +123,11 @@ const AppRouter = () => {
 				path="/reviews"
 				element={
 					<Suspense>
-						 <PrivateRouter >
+						 {/* <PrivateRouter > */}
 						<Layout>
 							<Reviews />
 						</Layout>
-						</PrivateRouter>
+						{/* </PrivateRouter> */}
 					</Suspense>
 				}
 			/>

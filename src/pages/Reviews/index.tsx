@@ -131,12 +131,12 @@ const Reviews = () => {
                           <thead className="table-dark">
                             <tr className="text-center">
                               <th className="whitespace-nowrap">ID</th>
-                              <th className="whitespace-nowrap">Người commnet</th>
-                              <th className="whitespace-nowrap">Phim</th>
+                              <th className="whitespace-nowrap">User comment</th>
+                              <th className="whitespace-nowrap">Bài viết</th>
                               <th className="whitespace-nowrap">Comment</th>
                               <th className="whitespace-nowrap">Đánh giá</th>
                               <th className="whitespace-nowrap">Thời gian comment</th>
-                              <th className="whitespace-nowrap">Operation</th>
+                              <th className="whitespace-nowrap">Chức năng</th>
                             </tr>
                           </thead>
                           <tbody>

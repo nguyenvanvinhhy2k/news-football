@@ -159,7 +159,7 @@ export default function Home() {
                 <div className="col-span-2">
                   <div className="intro-y block sm:flex items-center h-10 my-7">
                     <h2 className="text-lg font-medium truncate mr-5">
-                      Biều đồ thống kê đặt phim
+                      Biều đồ thống kê tin tức bóng đá
                     </h2>
                   </div>
                   <div className=" bg-white p-5">

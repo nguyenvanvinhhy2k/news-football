@@ -10,6 +10,7 @@ import cinemasAPI from "@/services/cinemas.service";
 import ReactSelect from 'react-select';
 import useQueryParams from "@/hooks/useQueryParams";
 import screeningsAPI from "@/services/screenings.service";
+import TextEditor from "../TextEditor";
 
 const schema = yup.object().shape({
 	name: yup.string().required("Vui lòng nhập name"),
@@ -33,7 +34,9 @@ const ModalAddScreenings = ({ setShowModalAdd, showModalAdd, callBack }: IProps)
 		register,
 		handleSubmit,
 		formState,
+    control,
 		reset,
+    setValue
 	} = useForm({
 		resolver: yupResolver(schema),
 		defaultValues: {
@@ -112,17 +115,21 @@ const ModalAddScreenings = ({ setShowModalAdd, showModalAdd, callBack }: IProps)
 		>
 			<div className="flex flex-col">
 				<div className="my-2">
-					<div className="flex items-center">
+					<div className="flex flex-col items-center">
 						<span className="w-[140px] font-medium text-base">
 						Tên phòng chiếu:
 						</span>
-						<div className="flex-1">
-							<input
-								placeholder="Nhập tên phòng chiếu"
-								type="text"
-								{...register("name")}
-								className="form-control w-full"
-							/>
+						<div className="flex-1 w-full
+            ">
+                <TextEditor
+                  register={register(`name`)}
+                  control={control}
+                  name={`name`}
+                  error={errors?.questionContent}
+                  className="col-12 "
+                  setValue={setValue}
+                  initContent={''}
+                />
 						</div>
 					</div>
 					{errors?.name && (

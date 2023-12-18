@@ -14,28 +14,33 @@ export const menuConfig: Menu[] = [
   },
   {
     id: 2,
-    name: 'Quản lý Movies',
-    slug: '/movies'
+    name: 'Quản lý giải đấu',
+    slug: '/tournaments'
   },
 	{
     id: 4,
-    name: 'Quản lý Cinemas',
-    slug: '/cinemas'
+    name: 'Quản lý trận đấu',
+    slug: '/match'
   },
 	  {
     id: 5,
-    name: 'Quản lý Screenings',
-    slug: '/screenings'
+    name: 'Quản lý đội thi đấu',
+    slug: '/competition-team'
   },
 	{
     id: 6,
-    name: 'Quản lý Bookings',
-    slug: '/bookings'
+    name: 'Quản lý bảng xếp hạng',
+    slug: '/charts'
   },
 	{
     id: 3,
-    name: 'Quản lý Tickets',
-    slug: '/tickets'
+    name: 'Quản lý danh mục',
+    slug: '/categories'
+  },
+  {
+    id: 3,
+    name: 'Quản lý bài viết',
+    slug: '/posts'
   },
   {
     id: 7,

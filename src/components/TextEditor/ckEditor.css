@@ -1,0 +1,54 @@
+.compose-editor{
+    margin-bottom: 1.5rem;
+}
+.ck-content {
+    min-height: 18.75rem;
+    border-color: #c4c4c4 !important;
+}
+.wrs_modal_button_cancel{
+    min-width: 80px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #778e9a;
+    padding: 6px 8px;
+    margin: 10px auto 0 5px;
+    cursor: pointer;
+    font-family: arial,sans-serif;
+    background-color: #ddd;
+    height: 32px;
+}
+.wrs_modal_button_accept:hover{
+    margin: 0 !important;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #778e9a;
+    padding: 6px 8px;
+    margin: 10px 5px 0 auto;
+    color: #fff;
+    background: #778e9a;
+    cursor: pointer;
+    font-family: arial,sans-serif;
+    height: 32px;
+}
+
+.wrs_editor .wrs_formulaDisplay{
+    overflow-y: auto !important;
+    overflow-x: none !important;
+}
+
+.hidden-toolbar .ck-sticky-panel__content{
+    /* display: none; */
+    visibility: hidden;
+
+  }
+  .inline .ck-content {
+    min-height: 3rem !important;
+
+  }
+	.ck-editor__editable_inline {
+		max-height: 600px;
+	}
+
+.ck a {
+  color: blue;
+}

@@ -59,8 +59,8 @@ const SignIn = () => {
                   className="-intro-x w-1/2 -mt-16"
                   src={logo}
                 />
-                <div className="-intro-x text-white font-medium text-4xl leading-tight mt-10">
-                  CMS SGK
+                <div className="-intro-x text-white font-medium text-4xl leading-tight mt-10 uppercase">
+                  CMS FNS
                 </div>
               </div>
             </div>
