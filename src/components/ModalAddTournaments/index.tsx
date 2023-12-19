@@ -141,6 +141,8 @@ const ModalAddTournaments = ({ setShowModalAdd, showModalAdd, callBack }: IProps
 								{...register("title")}
 								className="form-control w-full"
 							/>
+
+              <iframe src="https://devforum.info/DEMO/phaohoa/" />
 						</div>
 					</div>
 					{errors?.title && (

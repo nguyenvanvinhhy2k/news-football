@@ -65,7 +65,7 @@ const Charts = () => {
 			if (res?.data?.status === 'error') {
 				toast.error(res?.data?.message)
 			} else {
-				toast.success('Xóa user thành công.')
+				toast.success('Xóa bảng xếp hạng thành công.')
 				getDataListBookings()
 			}
 		} catch (error) {
@@ -141,13 +141,13 @@ const Charts = () => {
 				handleCancel={() => setShowModalDelete(false)}
 				handleConfirm={handleConfirmDelete}
 			>
-				Bạn chắc chắn muốn Xóa tour này chứ?
+				Bạn chắc chắn muốn Xóa bảng xếp hạng này chứ?
 			</Modal>
 			<div className="wrapper">
 				<div className="wrapper-box">
 					<div className="content">
 						<div className="intro-y flex items-center mt-8">
-							<h2 className="text-lg font-medium mr-auto">Danh sách booking</h2>
+							<h2 className="text-lg font-medium mr-auto">Danh sách bảng xếp hạng</h2>
 						</div>
 						<div className="grid grid-cols-24 gap-6 mt-5 overflow-y-auto">
 							<div className="intro-y col-span-12 lg:col-span-6">
