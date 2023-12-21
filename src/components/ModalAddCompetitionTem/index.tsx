@@ -24,7 +24,7 @@ type IProps = {
 	callBack: () => void
 }
 
-const ModalAddScreenings = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
+const ModalAddCompetitionTem = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
   const [movies, setMovies] = useState<any>([]);
   const [categories, setCategories] = useState<any>([])
 	const [params, setQueryParams] = useQueryParams()
@@ -115,13 +115,18 @@ const ModalAddScreenings = ({ setShowModalAdd, showModalAdd, callBack }: IProps)
 		>
 			<div className="flex flex-col">
 				<div className="my-2">
-					<div className="flex flex-col items-center">
+					<div className="flex items-center">
 						<span className="w-[140px] font-medium text-base">
-						Tên phòng chiếu:
+						Tên đội thi đấu:
 						</span>
-						<div className="flex-1 w-full
-            ">
-                <TextEditor
+						<div className="flex-1">
+              <input
+								placeholder="Nhập tên trận đấu"
+								type="text"
+								{...register("name")}
+								className="form-control w-full"
+							/>
+                {/* <TextEditor
                   register={register(`name`)}
                   control={control}
                   name={`name`}
@@ -129,7 +134,7 @@ const ModalAddScreenings = ({ setShowModalAdd, showModalAdd, callBack }: IProps)
                   className="col-12 "
                   setValue={setValue}
                   initContent={''}
-                />
+                /> */}
 						</div>
 					</div>
 					{errors?.name && (
@@ -138,7 +143,38 @@ const ModalAddScreenings = ({ setShowModalAdd, showModalAdd, callBack }: IProps)
 						</p>
 					)}
 				</div>
-				<div className="my-2">
+        <div className="my-2">
+					<div className="flex items-center">
+						<span className="w-[140px] font-medium text-base">
+						Tên giải đấu:
+						</span>
+						<div className="flex-1">
+              <input
+								placeholder="Nhập tên trận đấu"
+								type="text"
+								{...register("name")}
+								className="form-control w-full"
+							/>
+                {/* <TextEditor
+                  register={register(`name`)}
+                  control={control}
+                  name={`name`}
+                  error={errors?.questionContent}
+                  className="col-12 "
+                  setValue={setValue}
+                  initContent={''}
+                /> */}
+						</div>
+					</div>
+					{errors?.name && (
+						<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
+							{errors?.name?.message}
+						</p>
+					)}
+				</div>
+
+
+				{/* <div className="my-2">
 					<div className="flex items-center ">
 							<label className="w-[140px] font-medium text-base">Rạp chiếu: </label>
 							<ReactSelect
@@ -250,7 +286,7 @@ const ModalAddScreenings = ({ setShowModalAdd, showModalAdd, callBack }: IProps)
 							{errors?.endTime?.message}
 						</p>
 					)}
-				</div>
+				</div> */}
 
 
 
@@ -259,4 +295,4 @@ const ModalAddScreenings = ({ setShowModalAdd, showModalAdd, callBack }: IProps)
 	)
 }
 
-export default ModalAddScreenings
+export default ModalAddCompetitionTem

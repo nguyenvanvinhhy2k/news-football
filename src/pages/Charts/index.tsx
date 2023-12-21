@@ -8,8 +8,8 @@ import Modal from '@/components/Modal'
 import { toast } from 'react-toastify'
 import bookingAPI from '@/services/bookings.service'
 import dayjs from 'dayjs'
-import ModalEditBookings from '../../components/ModalEditBookings'
-import ModalViewBookings from '../../components/ModalViewBookings'
+import ModalEditCharts from '../../components/ModalEditCharts'
+import ModalViewCharts from '../../components/ModalViewBookings'
 import useQueryParams from '@/hooks/useQueryParams'
 import { useAuth } from '@/contexts/auth'
 
@@ -119,7 +119,7 @@ const Charts = () => {
 
 	return (
 		<>
-			<ModalViewBookings
+			<ModalViewCharts
 				showModalView={showModalView}
 				setShowModalView={setShowModalView}
 				itemBookings={itemBookings}
@@ -127,7 +127,7 @@ const Charts = () => {
 					getDataListBookings()
 				}}
 			/>
-			<ModalEditBookings
+			<ModalEditCharts
 				showModalEdit={showModalEdit}
 				setShowModalEdit={setShowModalEdit}
 				itemBookings={itemBookings}
@@ -136,7 +136,7 @@ const Charts = () => {
 				}}
 			/>
 			<Modal
-				title="Xóa booking tour"
+				title="Xóa bảng xếp hạng"
 				open={showModalDelete}
 				handleCancel={() => setShowModalDelete(false)}
 				handleConfirm={handleConfirmDelete}
@@ -154,10 +154,14 @@ const Charts = () => {
 								{/* BEGIN: Basic Table */}
 								<div className="intro-y box">
 									<div className="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 justify-between">
-										<div className="flex items-center">
-										</div>
+                  <div className="btn btn-primary mr-2 shadow-md " onClick={() => setShowModalEdit(true)}>
+													<span className="flex h-4 w-8 items-center justify-center">
+														<Plus />
+													</span>
+													Thêm mới
+												</div>
 										<div className="flex items-center font-medium ">
-											<div className="flex items-center w-full mr-[20px]">
+											{/* <div className="flex items-center w-full mr-[20px]">
 												<label className="mr-2">Trạng thái: </label>
 												<ReactSelect
 													options={actionsStatus?.map((type: { value: string, label: string }) => {
@@ -176,7 +180,7 @@ const Charts = () => {
 													classNamePrefix="select-input__custom "
 													placeholder="Chọn trạng thái ..."
 												/>
-											</div>
+											</div> */}
 											<div className="flex items-center gap-5 justify-end">
 												<div className="w-60 relative text-slate-500">
 													<InputSearchDebounce
@@ -202,13 +206,15 @@ const Charts = () => {
 												<table className="table">
 													<thead className="table-dark">
 														<tr className="text-center">
-															<th className="whitespace-nowrap">ID</th>
-															<th className="whitespace-nowrap">Tên phim</th>
-															<th className="whitespace-nowrap">Người đặt</th>
-															<th className="whitespace-nowrap">Thời gian đặt</th>
-															{/* <th className="whitespace-nowrap">Ngày khởi hành</th> */}
-															<th className="whitespace-nowrap">Trạng thái</th>
-															<th className="whitespace-nowrap">Operation</th>
+                            <th className="whitespace-nowrap">STT</th>
+															<th className="whitespace-nowrap">Giải đấu</th>
+															<th className="whitespace-nowrap">Đội thi đấu</th>
+															<th className="whitespace-nowrap">Số trận thi đấu</th>
+                              <th className="whitespace-nowrap">Thắng</th>
+															<th className="whitespace-nowrap">Hòa</th>
+                              <th className="whitespace-nowrap">Thua</th>
+															<th className="whitespace-nowrap">Hiệu số</th>
+															<th className="whitespace-nowrap">Chức năng</th>
 														</tr>
 													</thead>
 													<tbody>

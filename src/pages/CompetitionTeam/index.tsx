@@ -8,7 +8,7 @@ import Modal from '@/components/Modal'
 import { toast } from 'react-toastify'
 import ticketAPI from '@/services/tickets.service'
 import ModalEditScreenings from '@/components/ModalEditScreenings'
-import ModalAddScreenings from '@/components/ModalAddScreenings'
+import ModalAddCompetitionTem from '@/components/ModalAddCompetitionTem'
 import screeningsAPI from '@/services/screenings.service'
 import moviesAPI from '@/services/movies.service'
 import cinemasAPI from '@/services/cinemas.service'
@@ -71,7 +71,7 @@ const CompetitionTeam = () => {
 			if (res?.data?.status === 'error') {
 				toast.error(res?.data?.message)
 			} else {
-				toast.success('Xóa user thành công.')
+				toast.success('Xóa đội thi đấu thành công.')
 				getDataListScreenings()
 			}
 		} catch (error) {
@@ -103,7 +103,7 @@ const CompetitionTeam = () => {
 
   return (
     <>
-    	<ModalAddScreenings
+    	<ModalAddCompetitionTem
 				showModalAdd={showModalAdd}
 				setShowModalAdd={setShowModalAdd}
 				callBack={() => {
@@ -119,12 +119,12 @@ const CompetitionTeam = () => {
 				}}
 			/>
       <Modal
-				title="Xóa user"
+				title="Xóa đội thi đấu"
 				open={showModalDelete}
 				handleCancel={() => setShowModalDelete(false)}
 				handleConfirm={handleConfirmDelete}
 			>
-				Bạn chắc chắn muốn Xóa screenings này chứ?
+				Bạn chắc chắn muốn Xóa đội thi đấu này chứ?
 			</Modal>
       <div className="wrapper">
         <div className="wrapper-box">
@@ -173,12 +173,9 @@ const CompetitionTeam = () => {
                         <table className="table">
                           <thead className="table-dark">
                             <tr className="text-center">
-                              <th className="whitespace-nowrap">ID</th>
-															<th className="whitespace-nowrap">Tên phòng chiếu</th>
-                              <th className="whitespace-nowrap">Tên phim</th>
-                              <th className="whitespace-nowrap">Tên rạp phim</th>
-                              <th className="whitespace-nowrap">Thời gian bắt đầu</th>
-                              <th className="whitespace-nowrap">Thời gian kết thúc</th>
+                              <th className="whitespace-nowrap">STT</th>
+															<th className="whitespace-nowrap">Tên đội thi đấu</th>
+                              <th className="whitespace-nowrap">Tên giải đấu</th>
                               <th className="whitespace-nowrap">Chức năng</th>
                             </tr>
                           </thead>
@@ -190,9 +187,6 @@ const CompetitionTeam = () => {
                                     <tr className="text-center">
                                       <td>{index}</td>
 																			<td>{index}</td>
-                                      <td>{index}</td>
-                                      <td>{index}</td>
-                                      <td>{index}</td>
                                       <td>{index}</td>
                                       <td className="table-report__action w-[1%] border-l whitespace-nowrap lg:whitespace-normal">
                                         <div className="flex items-center justify-around">

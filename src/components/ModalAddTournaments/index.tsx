@@ -142,7 +142,7 @@ const ModalAddTournaments = ({ setShowModalAdd, showModalAdd, callBack }: IProps
 								className="form-control w-full"
 							/>
 
-              <iframe src="https://devforum.info/DEMO/phaohoa/" />
+              {/* <iframe className="flex-1" src="https://devforum.info/DEMO/phaohoa/" /> */}
 						</div>
 					</div>
 					{errors?.title && (

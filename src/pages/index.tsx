@@ -106,8 +106,8 @@ export default function Home() {
                           <div className="flex">
                             <div className="side-menu__icon text-blue-500 font-bold"><Type /></div>
                           </div>
-                          <div className="text-3xl font-medium leading-8 mt-6">{movies ? movies : 0}</div>
-                          <div className="text-base text-slate-500 mt-1">Movies</div>
+                          <div className="text-3xl font-medium leading-8 mt-6">{movies ? movies : 12}</div>
+                          <div className="text-base text-slate-500 mt-1">Giải đấu</div>
                         </div>
                       </div>
                     </Link>
@@ -119,8 +119,8 @@ export default function Home() {
                         <div className="flex">
                           <div className="side-menu__icon text-green-500 font-bold"><BookOpen /></div>
                         </div>
-                        <div className="text-3xl font-medium leading-8 mt-6">{cinemas ? cinemas : 0}</div>
-                        <div className="text-base text-slate-500 mt-1">Rạp chiếu</div>
+                        <div className="text-3xl font-medium leading-8 mt-6">{cinemas ? cinemas : 256}</div>
+                        <div className="text-base text-slate-500 mt-1">Trận đấu</div>
                       </div>
                     </div>
                     </Link>
@@ -132,8 +132,8 @@ export default function Home() {
                         <div className="flex">
                           <div className="side-menu__icon text-red-500 font-bold"><Bookmark /></div>
                         </div>
-                        <div className="text-3xl font-medium leading-8 mt-6">{booking ? booking : 0}</div>
-                        <div className="text-base text-slate-500 mt-1">Bookings</div>
+                        <div className="text-3xl font-medium leading-8 mt-6">{booking ? booking : 69}</div>
+                        <div className="text-base text-slate-500 mt-1">Bài viết</div>
                       </div>
                     </div>
                     </Link>
@@ -145,7 +145,7 @@ export default function Home() {
                         <div className="flex">
                           <div className="side-menu__icon text-yellow-500 font-bold"><FileQuestion /></div>
                         </div>
-                        <div className="text-3xl font-medium leading-8 mt-6">{review ? review : 0}</div>
+                        <div className="text-3xl font-medium leading-8 mt-6">{review ? review : 12.434}</div>
                         <div className="text-base text-slate-500 mt-1">Đánh giá</div>
                       </div>
                     </div>

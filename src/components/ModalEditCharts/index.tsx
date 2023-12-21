@@ -47,7 +47,7 @@ const actionsStatus = [
 	}
 ]
 
-const ModalEditBookings = ({ showModalEdit, setShowModalEdit, itemBookings, callBack }: IProps) => {
+const ModalEditCharts = ({ showModalEdit, setShowModalEdit, itemBookings, callBack }: IProps) => {
 
 	console.log(itemBookings)
 
@@ -65,7 +65,7 @@ const ModalEditBookings = ({ showModalEdit, setShowModalEdit, itemBookings, call
 		defaultValues: {
 			userId: itemBookings?.movies?.title,
 			movieId: itemBookings?.user?.name,
-			bookingDate: formatDate(itemBookings?.createdAt, "DD/MM/YYYY HH:mm:ss"),
+			bookingDate: '',
 			status: itemBookings?.status,
 		}
 	})
@@ -98,14 +98,14 @@ const ModalEditBookings = ({ showModalEdit, setShowModalEdit, itemBookings, call
 		reset({
 			userId: itemBookings?.movies?.title,
 			movieId: itemBookings?.user?.name,
-			bookingDate: formatDate(itemBookings?.createdAt, "DD/MM/YYYY HH:mm:ss"),
+			bookingDate: '',
 			status: itemBookings?.status,
 		})
 	}, [itemBookings, setShowModalEdit, showModalEdit])
 	return (
 		<>
 			<Modal
-				title="Sửa trạng thái bookings"
+				title="Thêm bảng xếp hạng"
 				open={showModalEdit}
 				handleCancel={() => setShowModalEdit(false)}
 				handleConfirm={handleSubmit(updatePost)}
@@ -116,13 +116,13 @@ const ModalEditBookings = ({ showModalEdit, setShowModalEdit, itemBookings, call
 					<div className="my-2">
 						<div className="flex items-center">
 							<span className="w-[140px] font-medium text-base">
-								Tên tour:
+								Tên giải đấu:
 							</span>
 							<div className="flex-1">
 								<input
 									type="text"
 									{...register("userId")}
-									disabled={true}
+									// disabled={true}
 									className="form-control w-full"
 								/>
 							</div>
@@ -136,14 +136,14 @@ const ModalEditBookings = ({ showModalEdit, setShowModalEdit, itemBookings, call
 					<div className="my-2">
 						<div className="flex items-center">
 							<span className="w-[140px] font-medium text-base">
-							Tên người đặt:
+							Tên đội bóng:
 							</span>
 							<div className="flex-1">
 								<input
 									type="text"
 									{...register("movieId")}
 									className="form-control w-full"
-									disabled={true}
+									// disabled={true}
 								/>
 							</div>
 						</div>
@@ -155,14 +155,14 @@ const ModalEditBookings = ({ showModalEdit, setShowModalEdit, itemBookings, call
 					</div>
 					<div className="my-2">
 						<div className="flex items-center">
-							<span className="w-[140px] font-medium text-base">Ngày khời hành:</span>
+							<span className="w-[140px] font-medium text-base">Số trận thi đấu:</span>
 							<div className="flex-1">
 								<input
-									placeholder="Nhập số điện thoại"
+									// placeholder="Nhập số điện thoại"
 									type="text"
 									{...register("bookingDate")}
 									className="form-control w-full"
-									disabled={true}
+									// disabled={true}
 								/>
 							</div>
 						</div>
@@ -173,7 +173,87 @@ const ModalEditBookings = ({ showModalEdit, setShowModalEdit, itemBookings, call
 						)}
 					</div>
 
-					<div className="my-2">
+          <div className="my-2">
+						<div className="flex items-center">
+							<span className="w-[140px] font-medium text-base">Thắng:</span>
+							<div className="flex-1">
+								<input
+									// placeholder="Nhập số điện thoại"
+									type="text"
+									{...register("bookingDate")}
+									className="form-control w-full"
+									// disabled={true}
+								/>
+							</div>
+						</div>
+						{errors?.bookingDate && (
+							<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
+								{errors?.bookingDate?.message}
+							</p>
+						)}
+					</div>
+
+          <div className="my-2">
+						<div className="flex items-center">
+							<span className="w-[140px] font-medium text-base">Hòa:</span>
+							<div className="flex-1">
+								<input
+									// placeholder="Nhập số điện thoại"
+									type="text"
+									{...register("bookingDate")}
+									className="form-control w-full"
+									// disabled={true}
+								/>
+							</div>
+						</div>
+						{errors?.bookingDate && (
+							<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
+								{errors?.bookingDate?.message}
+							</p>
+						)}
+					</div>
+
+          <div className="my-2">
+						<div className="flex items-center">
+							<span className="w-[140px] font-medium text-base">Thua:</span>
+							<div className="flex-1">
+								<input
+									// placeholder="Nhập số điện thoại"
+									type="text"
+									{...register("bookingDate")}
+									className="form-control w-full"
+									// disabled={true}
+								/>
+							</div>
+						</div>
+						{errors?.bookingDate && (
+							<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
+								{errors?.bookingDate?.message}
+							</p>
+						)}
+					</div>
+
+          <div className="my-2">
+						<div className="flex items-center">
+							<span className="w-[140px] font-medium text-base">Hiệu số:</span>
+							<div className="flex-1">
+								<input
+									// placeholder="Nhập số điện thoại"
+									type="text"
+									{...register("bookingDate")}
+									className="form-control w-full"
+									// disabled={true}
+								/>
+							</div>
+						</div>
+						{errors?.bookingDate && (
+							<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
+								{errors?.bookingDate?.message}
+							</p>
+						)}
+					</div>
+
+					{/* <div className="my-2">
 						<div className="flex items-center">
 							<span className="w-[140px] font-medium text-base">Trạng thái:</span>
 							<div className="flex-1">
@@ -192,7 +272,7 @@ const ModalEditBookings = ({ showModalEdit, setShowModalEdit, itemBookings, call
 								{errors?.status?.message}
 							</p>
 						)}
-					</div>
+					</div> */}
 
 				</div>
 			</Modal>
@@ -200,4 +280,4 @@ const ModalEditBookings = ({ showModalEdit, setShowModalEdit, itemBookings, call
 	)
 }
 
-export default ModalEditBookings
+export default ModalEditCharts

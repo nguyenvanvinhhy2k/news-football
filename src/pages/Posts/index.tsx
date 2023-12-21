@@ -7,7 +7,7 @@ import { Edit, Plus, Trash2, X } from 'lucide-react'
 import Modal from '@/components/Modal'
 import { toast } from 'react-toastify'
 import ModalEditCinemas from '@/components/ModalEditCinemas'
-import ModalAddCinemas from '@/components/ModalAddMatch'
+import ModalAddPosts from '@/components/ModalAddPosts'
 import cinemasAPI from '@/services/cinemas.service'
 import useQueryParams from '@/hooks/useQueryParams'
 import { useAuth } from '@/contexts/auth'
@@ -41,7 +41,7 @@ const Posts = () => {
 			if (res?.data?.status === 'error') {
 				toast.error(res?.data?.message)
 			} else {
-				toast.success('Xóa user thành công.')
+				toast.success('Xóa bài viết thành công.')
 				getDataListCinemas()
 			}
 		} catch (error) {
@@ -87,7 +87,7 @@ const Posts = () => {
 
 	return (
 		<>
-			<ModalAddCinemas
+			<ModalAddPosts
 				showModalAdd={showModalAdd}
 				setShowModalAdd={setShowModalAdd}
 				callBack={() => {
@@ -103,18 +103,18 @@ const Posts = () => {
 				}}
 			/>
 			<Modal
-				title="Xóa cinemas"
+				title="Xóa bài viết"
 				open={showModalDelete}
 				handleCancel={() => setShowModalDelete(false)}
 				handleConfirm={handleConfirmDelete}
 			>
-				Bạn chắc chắn muốn Xóa cinemas này chứ?
+				Bạn chắc chắn muốn Xóa bài viết này chứ?
 			</Modal>
 			<div className="wrapper">
 				<div className="wrapper-box">
 					<div className="content">
 						<div className="intro-y flex items-center mt-8">
-							<h2 className="text-lg font-medium mr-auto">Danh sách Cinemas</h2>
+							<h2 className="text-lg font-medium mr-auto">Danh sách bài viết</h2>
 						</div>
 						<div className="grid grid-cols-24 gap-6 mt-5 overflow-y-auto">
 							<div className="intro-y col-span-12 lg:col-span-6">
@@ -122,14 +122,12 @@ const Posts = () => {
 								<div className="intro-y box">
 									<div className="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 justify-between">
 										<div className="flex items-center">
-											{user?.role === "ADMIN" && (
 												<div className="btn btn-primary mr-2 shadow-md w-full" onClick={() => setShowModalAdd(true)}>
 													<span className="flex h-4 w-8 items-center justify-center">
 														<Plus />
 													</span>
 													Thêm mới
 												</div>
-											)}
 										</div>
 										<div className="flex items-center font-medium ">
 											<div className="flex items-center gap-5 flex-wrap justify-end">
@@ -159,9 +157,9 @@ const Posts = () => {
 													<thead className="table-dark">
 														<tr className="text-center">
 															<th className="whitespace-nowrap">ID</th>
-															<th className="whitespace-nowrap">Tên rạp phim</th>
-															<th className="whitespace-nowrap">Địa chỉ</th>
-															<th className="whitespace-nowrap">Thành phố</th>
+															<th className="whitespace-nowrap">Tên bài viết</th>
+															<th className="whitespace-nowrap">Nội dung</th>
+															<th className="whitespace-nowrap">Tag</th>
 															<th className="whitespace-nowrap">Chức năng</th>
 														</tr>
 													</thead>

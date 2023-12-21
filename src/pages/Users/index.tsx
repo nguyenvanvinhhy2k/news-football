@@ -123,14 +123,12 @@ const Users = () => {
                 <div className="intro-y box">
                 <div className="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 justify-between">
 											<div className="flex items-center">
-											{user?.role === "ADMIN" && (
 												<div className="btn btn-primary mr-2 shadow-md w-full" onClick={() => setShowModalAdd(true)}>
 													<span className="flex h-4 w-8 items-center justify-center">
 														<Plus />
 													</span>
 													Thêm mới
 												</div>
-											)}
 											</div>
 										<div className="flex items-center font-medium ">
 											<div className="flex items-center gap-5 flex-wrap justify-end">

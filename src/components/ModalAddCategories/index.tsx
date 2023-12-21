@@ -21,7 +21,7 @@ type IProps = {
 	callBack: () => void
 }
 
-const ModalAddTicket = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
+const ModalAddCategories = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
 	const [params, setQueryParams] = useQueryParams()
 	const { page, size, cinemaId, screeningId } = params
 	const [screenings, setScreenings] = useState<any>([])
@@ -82,7 +82,7 @@ const ModalAddTicket = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => 
 	}, [ setShowModalAdd, showModalAdd])
 	return (
 		<Modal
-			title="Thêm thông tin vé"
+			title="Thêm thông tin danh mục"
 			open={showModalAdd}
 			handleCancel={() => setShowModalAdd(false)}
 			handleConfirm={handleSubmit(addUser)}
@@ -93,70 +93,11 @@ const ModalAddTicket = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => 
 				<div className="my-2">
 					<div className="flex items-center">
 						<span className="w-[140px] font-medium text-base">
-							Tên phòng chiếu:
-						</span>
-						<ReactSelect
-								options={screenings?.map((subject: any) => {
-									return {
-										value: subject.id,
-										label: subject.name
-									};
-								}
-								)}
-								onChange={(value: any) => {
-									setQueryParams({
-										...params, page: page, size: size, screeningId: value ? value.value : undefined,
-										category: undefined,
-									}, true)
-								}}
-								value={
-									screenings?.filter((item: any) => item.id == screeningId).map((item: any) => {
-										return {
-											value: item.id,
-											label: item.name
-										}
-									})
-								}
-								className="w-60 flex-1"
-								isClearable
-								classNamePrefix="select-input__custom "
-								placeholder="Chọn phòng chiếu"
-							/>
-					</div>
-					{errors?.screeningId && (
-						<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
-							{errors?.screeningId?.message}
-						</p>
-					)}
-				</div>
-				<div className="my-2">
-					<div className="flex items-center">
-						<span className="w-[140px] font-medium text-base">
-						Số ghế ngồi:
+							Tên danh mục:
 						</span>
 						<div className="flex-1">
 							<input
-								placeholder="Nhập số ghế"
-								type="text"
-								{...register("seatNumber")}
-								className="form-control w-full"
-							/>
-						</div>
-					</div>
-					{errors?.seatNumber && (
-						<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
-							{errors?.seatNumber?.message}
-						</p>
-					)}
-				</div>
-				<div className="my-2">
-					<div className="flex items-center">
-						<span className="w-[140px] font-medium text-base">
-							Gía vé:
-						</span>
-						<div className="flex-1">
-							<input
-								placeholder="Nhập giá vé"
+								placeholder="Nhập tên danh mục"
 								type="text"
 								{...register("price")}
 								className="form-control w-full"
@@ -174,4 +115,4 @@ const ModalAddTicket = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => 
 	)
 }
 
-export default ModalAddTicket
+export default ModalAddCategories

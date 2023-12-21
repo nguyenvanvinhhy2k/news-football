@@ -7,6 +7,7 @@ import Modal from 'components/Modal'
 import userAPI from "@/services/users.service";
 import moviesAPI from "@/services/movies.service";
 import cinemasAPI from "@/services/cinemas.service";
+import TextEditor from "../TextEditor";
 
 const schema = yup.object().shape({
 	name: yup.string().required("Vui lòng nhập name"),
@@ -20,13 +21,15 @@ type IProps = {
 	callBack: () => void
 }
 
-const ModalAddMatch = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
+const ModalAddPosts = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
 
 	const {
 		register,
 		handleSubmit,
 		formState,
 		reset,
+    control,
+    setValue
 	} = useForm({
 		resolver: yupResolver(schema),
 		defaultValues: {
@@ -49,7 +52,7 @@ const ModalAddMatch = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
 				toast.error(res?.data?.message)
 			} else {
 				callBack && callBack()
-				toast.success('Thêm rạp thành công.')
+				toast.success('Thêm bài viết thành công.')
 				setShowModalAdd(false)
 			}
 		} catch (error) {
@@ -66,22 +69,22 @@ const ModalAddMatch = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
 	}, [ setShowModalAdd, showModalAdd])
 	return (
 		<Modal
-			title="Thêm thông tin trận đấu"
+			title="Thêm thông tin bài viết"
 			open={showModalAdd}
 			handleCancel={() => setShowModalAdd(false)}
 			handleConfirm={handleSubmit(addUser)}
-			className="w-full max-w-[475px]"
+			className="w-full max-w-[675px]"
 			confirmButtonTitle="Lưu"
 		>
 			<div className="flex flex-col">
 				<div className="my-2">
 					<div className="flex items-center">
 						<span className="w-[140px] font-medium text-base">
-						Tên giải đấu:
+						Tên bài viết:
 						</span>
 						<div className="flex-1">
 							<input
-								placeholder="Nhập tên trận đấu"
+								placeholder="Nhập tên bài viết"
 								type="text"
 								{...register("name")}
 								className="form-control w-full"
@@ -94,75 +97,14 @@ const ModalAddMatch = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
 						</p>
 					)}
 				</div>
-				<div className="my-2">
-					<div className="flex items-center">
-						<span className="w-[140px] font-medium text-base">
-							Tên đội bóng 1:
-						</span>
-						<div className="flex-1">
-							<input
-								placeholder="Nhập đội bóng 1"
-								type="text"
-								{...register("address")}
-								className="form-control w-full"
-							/>
-						</div>
-					</div>
-					{errors?.address && (
-						<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
-							{errors?.address?.message}
-						</p>
-					)}
-				</div>
-				<div className="my-2">
-					<div className="flex items-center">
-						<span className="w-[140px] font-medium text-base">
-            Số bàn thắng ghi đội đấu 1:
-						</span>
-						<div className="flex-1">
-							<input
-								placeholder="Nhập số bàn thắng đội 1"
-								type="text"
-								{...register("city")}
-								className="form-control w-full"
-							/>
-						</div>
-					</div>
-					{errors?.city && (
-						<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
-							{errors?.city?.message}
-						</p>
-					)}
-				</div>
-
         <div className="my-2">
 					<div className="flex items-center">
 						<span className="w-[140px] font-medium text-base">
-							Tên đội bóng 2:
+            Tag:
 						</span>
 						<div className="flex-1">
 							<input
-								placeholder="Nhập đội bóng 2"
-								type="text"
-								{...register("address")}
-								className="form-control w-full"
-							/>
-						</div>
-					</div>
-					{errors?.address && (
-						<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
-							{errors?.address?.message}
-						</p>
-					)}
-				</div>
-				<div className="my-2">
-					<div className="flex items-center">
-						<span className="w-[140px] font-medium text-base">
-            Số bàn thắng ghi đội đấu 2:
-						</span>
-						<div className="flex-1">
-							<input
-								placeholder="Nhập số bàn thắng đội 2"
+								placeholder="Nhập tag"
 								type="text"
 								{...register("city")}
 								className="form-control w-full"
@@ -172,6 +114,29 @@ const ModalAddMatch = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
 					{errors?.city && (
 						<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
 							{errors?.city?.message}
+						</p>
+					)}
+				</div>
+				<div className="my-2">
+					<div className="flex flex-col">
+						<span className="w-[140px] mb-[10px] font-medium text-base">
+							Nội dung:
+						</span>
+						<div className="flex-1 w-full">
+                <TextEditor
+                  register={register(`name`)}
+                  control={control}
+                  name={`name`}
+                  error={errors?.questionContent}
+                  className="col-22 "
+                  setValue={setValue}
+                  initContent={''}
+                />
+						</div>
+					</div>
+					{errors?.address && (
+						<p className="text-sm text-red-700 mt-1 ml-1 m-auto pl-[140px]">
+							{errors?.address?.message}
 						</p>
 					)}
 				</div>
@@ -180,4 +145,4 @@ const ModalAddMatch = ({ setShowModalAdd, showModalAdd, callBack }: IProps) => {
 	)
 }
 
-export default ModalAddMatch
+export default ModalAddPosts

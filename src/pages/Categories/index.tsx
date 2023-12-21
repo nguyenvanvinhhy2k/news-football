@@ -8,7 +8,7 @@ import Modal from '@/components/Modal'
 import { toast } from 'react-toastify'
 import ticketAPI from '@/services/tickets.service'
 import ModalEditTicket from '@/components/ModalEditTicket'
-import ModalAddTicket from '@/components/ModalAddTicket'
+import ModalAddCategories from '@/components/ModalAddCategories'
 import screeningsAPI from '@/services/screenings.service'
 import useQueryParams from '@/hooks/useQueryParams'
 import { useAuth } from '@/contexts/auth'
@@ -77,7 +77,7 @@ const Categories = () => {
 			if (res?.data?.status === 'error') {
 				toast.error(res?.data?.message)
 			} else {
-				toast.success('Xóa user thành công.')
+				toast.success('Xóa danh mục thành công.')
 				getDataListTickets()
 			}
 		} catch (error) {
@@ -109,7 +109,7 @@ const Categories = () => {
 
   return (
     <>
-    	<ModalAddTicket
+    	<ModalAddCategories
 				showModalAdd={showModalAdd}
 				setShowModalAdd={setShowModalAdd}
 				callBack={() => {
@@ -125,32 +125,30 @@ const Categories = () => {
 				}}
 			/>
       <Modal
-				title="Xóa user"
+				title="Xóa danh mục"
 				open={showModalDelete}
 				handleCancel={() => setShowModalDelete(false)}
 				handleConfirm={handleConfirmDelete}
 			>
-				Bạn chắc chắn muốn Xóa ticket này chứ?
+				Bạn chắc chắn muốn Xóa danh mục này chứ?
 			</Modal>
       <div className="wrapper">
         <div className="wrapper-box">
           <div className="content">
             <div className="intro-y flex items-center mt-8">
-              <h2 className="text-lg font-medium mr-auto">Danh sách Ticket</h2>
+              <h2 className="text-lg font-medium mr-auto">Danh sách danh mục</h2>
             </div>
             <div className="grid grid-cols-24 gap-6 mt-5 overflow-y-auto">
               <div className="intro-y col-span-12 lg:col-span-6">
                 {/* BEGIN: Basic Table */}
                 <div className="intro-y box">
                 <div className="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 justify-between">
-								{user?.role === "ADMIN" && (
 												<div className="btn btn-primary mr-2 shadow-md " onClick={() => setShowModalAdd(true)}>
 													<span className="flex h-4 w-8 items-center justify-center">
 														<Plus />
 													</span>
 													Thêm mới
 												</div>
-											)}
 										<div className="flex items-center font-medium ">
 											<div className="flex items-center gap-5 flex-wrap justify-end">
 												<div className="w-60 relative text-slate-500">
@@ -178,9 +176,7 @@ const Categories = () => {
                           <thead className="table-dark">
                             <tr className="text-center">
                               <th className="whitespace-nowrap">ID</th>
-                              <th className="whitespace-nowrap">Tên phòng chiếu</th>
-                              <th className="whitespace-nowrap">Số ghế</th>
-                              <th className="whitespace-nowrap">Giá tiền</th>
+                              <th className="whitespace-nowrap">Tên danh mục</th>
                               <th className="whitespace-nowrap">Chức năng</th>
                             </tr>
                           </thead>
